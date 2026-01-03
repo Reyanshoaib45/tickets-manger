@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repair Management System - Technical Specifications</title>
+    <title>Repair Management System - Complete Specifications</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +34,7 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             overflow: hidden;
             margin: 20px auto;
-            max-width: 1200px;
+            max-width: 1400px;
         }
         
         .priority-p0 { 
@@ -51,11 +51,6 @@
             background-color: rgba(202, 138, 4, 0.1); 
             border-left: 5px solid #ca8a04;
             border-top: 2px solid #ca8a04;
-        }
-        .priority-p3 { 
-            background-color: rgba(37, 99, 235, 0.1); 
-            border-left: 5px solid var(--info-color);
-            border-top: 2px solid var(--info-color);
         }
         
         .ticket-card {
@@ -92,22 +87,6 @@
             border-radius: 0 8px 8px 0;
         }
         
-        .glossary-term {
-            background-color: #f8fafc;
-            padding: 8px 12px;
-            border-radius: 6px;
-            border-left: 4px solid var(--success-color);
-            margin-bottom: 8px;
-        }
-        
-        .timeline-marker {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 8px;
-        }
-        
         .simple-explanation {
             background-color: #fef3c7;
             border-left: 4px solid #f59e0b;
@@ -124,18 +103,6 @@
             color: #d97706;
             font-size: 1.2rem;
             margin-right: 10px;
-        }
-        
-        .visual-guide {
-            background-color: #ecfdf5;
-            border: 2px dashed #10b981;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .visual-guide h5 {
-            color: #065f46;
         }
         
         .step-box {
@@ -160,14 +127,6 @@
             margin-right: 10px;
         }
         
-        .user-role-box {
-            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #d8b4fe;
-        }
-        
         .created-by {
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             padding: 20px;
@@ -186,6 +145,55 @@
             color: var(--primary-color);
             margin-top: 10px;
         }
+        
+        .ticket-counter {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--danger-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .ticket-header {
+            position: relative;
+        }
+        
+        .voice-example {
+            background-color: #ecfdf5;
+            border: 1px solid #10b981;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .voice-example::before {
+            content: "💬 ";
+            font-size: 1.2rem;
+            margin-right: 5px;
+        }
+        
+        .real-scenario {
+            background-color: #e0f2fe;
+            border: 1px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        
+        .real-scenario::before {
+            content: "📱 ";
+            font-size: 1.2rem;
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -197,16 +205,16 @@
                     <h1 class="display-5 fw-bold mb-2">
                         <i class="fas fa-tools me-3"></i>Repair Management System
                     </h1>
-                    <h2 class="h4 fw-light mb-3">Technical Specifications & Development Tickets</h2>
+                    <h2 class="h4 fw-light mb-3">Complete Technical Specifications - All 10 Tickets</h2>
                     <div class="d-flex flex-wrap gap-3">
                         <span class="badge bg-light text-dark p-2">
-                            <i class="fas fa-calendar me-1"></i> Date: October 26, 2023
+                            <i class="fas fa-calendar me-1"></i> October 26, 2023
                         </span>
                         <span class="badge bg-light text-dark p-2">
-                            <i class="fas fa-code-branch me-1"></i> Version: 2.0
+                            <i class="fas fa-ticket-alt me-1"></i> 10 Total Tickets
                         </span>
                         <span class="badge bg-light text-dark p-2">
-                            <i class="fas fa-user me-1"></i> Made For: Development Team
+                            <i class="fas fa-user me-1"></i> Made For Development Team
                         </span>
                     </div>
                 </div>
@@ -220,564 +228,1015 @@
             </div>
         </div>
         
-        <!-- Executive Summary -->
-        <div class="p-5 border-bottom">
-            <h3 class="fw-bold mb-4" style="color: var(--primary-color);">
-                <i class="fas fa-file-alt me-2"></i>Executive Summary
-            </h3>
-            <div class="row">
-                <div class="col-lg-10">
-                    <p class="lead">
-                        This document explains how our repair shop software should work, in simple terms. We're building a system where technicians can fix phones, order parts, and managers can see what's happening.
-                    </p>
-                    <p>
-                        Think of it like a video game where each repair job is a quest, and technicians are the heroes completing quests. This document tells the programmers how to build that game!
-                    </p>
-                    
-                    <div class="simple-explanation">
-                        <h6><i class="fas fa-child icon"></i>Imagine This Like a Game:</h6>
-                        <ul class="mb-0">
-                            <li><strong>Technicians</strong> are players with their own game boards</li>
-                            <li><strong>Repair jobs</strong> are missions they need to complete</li>
-                            <li><strong>Parts ordering</strong> is like sending for special tools</li>
-                            <li><strong>The Task Board</strong> is where everyone can give each other mini-missions</li>
-                        </ul>
+        <!-- Quick Stats -->
+        <div class="p-3 bg-light border-bottom">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="p-3 rounded-3" style="background-color: rgba(220, 38, 38, 0.1);">
+                        <h2 class="fw-bold text-danger">2</h2>
+                        <p class="mb-0">P0 - Critical Tickets</p>
                     </div>
                 </div>
-                <div class="col-lg-2">
-                    <div class="bg-indigo-50 p-4 rounded-3 text-center h-100">
-                        <i class="fas fa-gamepad fa-3x text-indigo-600 mb-3"></i>
-                        <p class="fw-bold mb-0">Designed Simple Like a Game</p>
-                        <small class="text-muted">Easy for everyone to understand</small>
+                <div class="col-md-3">
+                    <div class="p-3 rounded-3" style="background-color: rgba(234, 88, 12, 0.1);">
+                        <h2 class="fw-bold text-warning">5</h2>
+                        <p class="mb-0">P1 - High Priority</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 rounded-3" style="background-color: rgba(202, 138, 4, 0.1);">
+                        <h2 class="fw-bold" style="color: #ca8a04;">3</h2>
+                        <p class="mb-0">P2 - Medium Priority</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 rounded-3 bg-info bg-opacity-10">
+                        <h2 class="fw-bold text-info">10</h2>
+                        <p class="mb-0">Total Tickets</p>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Main Content -->
-        <div class="row m-0">
-            <!-- Left Column: Glossary & Priority Matrix -->
-            <div class="col-lg-4 p-4 bg-gray-50">
-                <!-- Simple Explanation -->
-                <div class="mb-5">
-                    <h4 class="fw-bold mb-3" style="color: var(--secondary-color);">
-                        <i class="fas fa-lightbulb me-2"></i>Think of It Like This:
-                    </h4>
-                    <div class="user-role-box">
-                        <h6><i class="fas fa-user-cog text-primary me-2"></i><strong>Technician</strong> (The Fixer)</h6>
-                        <p class="small mb-0">Only sees phones they need to fix. Like having their own personal to-do list.</p>
-                    </div>
-                    
-                    <div class="user-role-box">
-                        <h6><i class="fas fa-user-tie text-success me-2"></i><strong>Store Person</strong> (The Shopper)</h6>
-                        <p class="small mb-0">Gets shopping lists (part orders) from technicians. Buys parts online.</p>
-                    </div>
-                    
-                    <div class="user-role-box">
-                        <h6><i class="fas fa-user-shield text-warning me-2"></i><strong>Manager</strong> (The Boss)</h6>
-                        <p class="small mb-0">Can see everything but doesn't get confused by too much detail.</p>
-                    </div>
-                    
-                    <div class="user-role-box">
-                        <h6><i class="fas fa-shopping-cart text-info me-2"></i><strong>Customer</strong> (The Waiter)</h6>
-                        <p class="small mb-0">Only gets important updates: "Your phone is ready!" or "We can't fix it."</p>
+        <!-- Introduction -->
+        <div class="p-4 bg-white">
+            <div class="alert alert-info">
+                <h5><i class="fas fa-info-circle me-2"></i>About This Document</h5>
+                <p class="mb-0">This document contains ALL 10 tickets from the voice discussions. Each ticket includes real examples mentioned in the conversation, explained in simple terms that anyone can understand.</p>
+            </div>
+        </div>
+        
+        <!-- Main Tickets Section -->
+        <div class="p-4">
+            <h3 class="fw-bold mb-4" style="color: var(--primary-color); border-bottom: 3px solid var(--primary-color); padding-bottom: 10px;">
+                <i class="fas fa-tasks me-2"></i>All 10 Tickets - Complete List
+            </h3>
+            
+            <!-- TICKET 1 -->
+            <div class="ticket-card p-4 priority-p1">
+                <div class="ticket-header">
+                    <div class="ticket-counter">1</div>
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <span class="status-badge bg-warning text-dark">P1 - HIGH PRIORITY</span>
+                            <h4 class="fw-bold mt-2 mb-1">Separate Task Board and Repair Board</h4>
+                            <h5 class="text-muted">Don't mix repair jobs with general tasks</h5>
+                        </div>
+                        <div class="text-end">
+                            <span class="badge bg-info text-dark me-1">Architecture</span>
+                            <span class="badge bg-warning text-dark">UX Design</span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Priority Matrix -->
-                <div class="mb-5">
-                    <h4 class="fw-bold mb-3" style="color: var(--secondary-color);">
-                        <i class="fas fa-exclamation-triangle me-2"></i>What's Most Important?
-                    </h4>
-                    
-                    <div class="simple-explanation mb-3">
-                        <h6><i class="fas fa-bullhorn icon"></i>Priority Levels Explained Simply:</h6>
-                        <p class="small mb-0">P0 = "Fix this NOW or we can't work!"<br>
-                        P1 = "Very important, do this soon"<br>
-                        P2 = "Nice to have, but can wait"</p>
+                <div class="simple-explanation">
+                    <h6><i class="fas fa-child icon"></i>What This Means:</h6>
+                    <p class="mb-0">Right now, technicians see repair jobs mixed with general tasks like "buy coffee" or "call customer." This is confusing! We need two separate boards: one ONLY for phone repairs, and one for general tasks.</p>
+                </div>
+                
+                <div class="voice-example">
+                    "We do not merge the task board and repair board. This will be interlinked. It will not be merged completely, but it will be interlinked. No, no. I am saying that there should be only one board of my task. Keep it separate for now. Less confusion will be created."
+                </div>
+                
+                <div class="mb-3">
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-list-check me-1"></i>What Needs to Happen:
+                    </h6>
+                    <div class="step-box">
+                        <div class="step-number">1</div>
+                        Create TWO different boards in the system
                     </div>
-                    
+                    <div class="step-box">
+                        <div class="step-number">2</div>
+                        <strong>Repair Board:</strong> Only technicians can see this. Shows only phone repairs.
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">3</div>
+                        <strong>Task Board:</strong> Everyone can see this. For general tasks like ordering parts, calling customers, etc.
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">4</div>
+                        When a sales person logs in, they should NOT see the Repair Board
+                    </div>
+                </div>
+                
+                <div class="real-scenario">
+                    <strong>Real Example from Voice:</strong> If you're a sales person, you don't need to see repair statuses. If you're a technician, you don't need to see "call customer back" tasks. Separate boards = less confusion.
+                </div>
+                
+                <div>
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-clipboard-check me-1"></i>How We Test This:
+                    </h6>
+                    <div class="acceptance-criteria">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Technician sees both "My Repairs" and "Task Board" menus</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Sales person sees ONLY "Task Board" menu</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Manager can choose which board to view in settings</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TICKET 2 -->
+            <div class="ticket-card p-4 priority-p0">
+                <div class="ticket-header">
+                    <div class="ticket-counter">2</div>
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <span class="status-badge bg-danger text-white">P0 - CRITICAL</span>
+                            <h4 class="fw-bold mt-2 mb-1">Part Ordering System</h4>
+                            <h5 class="text-muted">When technician needs a part, create a task for store person</h5>
+                        </div>
+                        <div class="text-end">
+                            <span class="badge bg-danger text-white me-1">Core Feature</span>
+                            <span class="badge bg-primary text-white">Workflow</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="simple-explanation">
+                    <h6><i class="fas fa-child icon"></i>What This Means:</h6>
+                    <p class="mb-0">When fixing a phone, if the technician needs a new screen or battery, they should be able to create a "shopping list" for the store person. The store person then buys it and marks it as done.</p>
+                </div>
+                
+                <div class="voice-example">
+                    "I am a technician and I put the repair in the order parts. I put the link, put the price and selected the person. And done. So, basically, what is the function behind it? This task has been generated."
+                </div>
+                
+                <div class="mb-3">
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-list-check me-1"></i>Step-by-Step Process:
+                    </h6>
+                    <div class="step-box">
+                        <div class="step-number">1</div>
+                        Technician clicks "Order Part" on a repair job
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">2</div>
+                        Popup asks: <strong>Part Link (URL)? Price? Who should buy it?</strong>
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">3</div>
+                        System creates a task for the store person: "Buy iPhone 12 screen - $49.99 - Link: amazon.com/iphone-screen"
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">4</div>
+                        Repair turns yellow to show "Waiting for Parts"
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">5</div>
+                        Store person buys part, marks task done → Technician gets notification
+                    </div>
+                </div>
+                
+                <div class="real-scenario">
+                    <strong>Real Example from Voice:</strong> "There, the user will be shown that who are you assigning, because it is adding the part. It is ordering for you. Right. It will put the link. According to that link, it will put the price. How much is the price in it? And it will assign to the user that it will order the part."
+                </div>
+                
+                <div class="mb-3">
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-exclamation-circle me-1"></i>Important Detail from Voice:
+                    </h6>
+                    <div class="alert alert-warning">
+                        <i class="fas fa-microphone me-2"></i>
+                        <strong>Multiple Parts Scenario:</strong> "One more question. If a person has ordered a part for a job, for a repair, he has ordered that part. Now in the same repair, on the same job, he orders another part. One more task will be generated. Each part will be a different task."
+                    </div>
+                </div>
+                
+                <div>
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-clipboard-check me-1"></i>How We Test This:
+                    </h6>
+                    <div class="acceptance-criteria">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Click "Order Part" → Shows popup with all required fields</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Store person gets email with shopping details</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Repair job changes color to show "waiting for parts"</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Ordering second part creates separate task</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TICKET 3 -->
+            <div class="ticket-card p-4 priority-p1">
+                <div class="ticket-header">
+                    <div class="ticket-counter">3</div>
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <span class="status-badge bg-warning text-dark">P1 - HIGH PRIORITY</span>
+                            <h4 class="fw-bold mt-2 mb-1">Task Board Rules & Permissions</h4>
+                            <h5 class="text-muted">Who can do what with tasks - Clear rules</h5>
+                        </div>
+                        <div class="text-end">
+                            <span class="badge bg-secondary text-white me-1">Security</span>
+                            <span class="badge bg-dark text-white">Permissions</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="simple-explanation">
+                    <h6><i class="fas fa-child icon"></i>What This Means:</h6>
+                    <p class="mb-0">On the Task Board, we need clear rules like a classroom. You can give homework to someone, but you can't change their homework answers. Only they can update their own work.</p>
+                </div>
+                
+                <div class="voice-example">
+                    "You can add tasks to his task. You can put the name of the task, put the details and add it. So, he will get a notification in the email that Azaad has generated a task for B. Even if he will delete it, I will get a notification that he has deleted the task. He can also delete the task that he has generated. Secondly, he cannot move anyone's task. He can only generate tasks for someone."
+                </div>
+                
+                <div class="mb-3">
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-gavel me-1"></i>The Rules:
+                    </h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card border-success h-100">
+                                <div class="card-header bg-success text-white">
+                                    <i class="fas fa-check-circle me-2"></i>YOU CAN:
+                                </div>
+                                <div class="card-body">
+                                    <ul class="mb-0">
+                                        <li>Create tasks for anyone</li>
+                                        <li>Delete tasks YOU created</li>
+                                        <li>Take someone else's task if they're sick/away</li>
+                                        <li>See task history (who did what)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-danger h-100">
+                                <div class="card-header bg-danger text-white">
+                                    <i class="fas fa-times-circle me-2"></i>YOU CANNOT:
+                                </div>
+                                <div class="card-body">
+                                    <ul class="mb-0">
+                                        <li>Move other people's tasks</li>
+                                        <li>Delete tasks you didn't create</li>
+                                        <li>Hide who created a task</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="real-scenario">
+                    <strong>Real Example from Voice:</strong> "For example, Riyan was working. Riyan went on leave. You told me to do this on your leave. So what I will do, I will open my board. Means for example, I opened the repair. You open the ticket there, we opened the repair here. After opening the repair, the assigned list, as soon as I open it, above the user list it was written, Assigned to myself. So it will be assigned to him."
+                </div>
+                
+                <div>
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-clipboard-check me-1"></i>How We Test This:
+                    </h6>
+                    <div class="acceptance-criteria">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Alice creates task for Bob → Bob can move it, Alice cannot</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Alice deletes her task → Bob gets "task deleted" email</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">"Assign to Myself" button works when someone is away</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Task history shows complete timeline of changes</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TICKET 4 -->
+            <div class="ticket-card p-4 priority-p1">
+                <div class="ticket-header">
+                    <div class="ticket-counter">4</div>
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <span class="status-badge bg-warning text-dark">P1 - HIGH PRIORITY</span>
+                            <h4 class="fw-bold mt-2 mb-1">Smart Email Notifications</h4>
+                            <h5 class="text-muted">Only send important emails, not spam</h5>
+                        </div>
+                        <div class="text-end">
+                            <span class="badge bg-success text-white me-1">Email</span>
+                            <span class="badge bg-info text-dark">Communication</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="simple-explanation">
+                    <h6><i class="fas fa-child icon"></i>What This Means:</h6>
+                    <p class="mb-0">Nobody likes too many emails! We should only email people when something important happens that they need to know about RIGHT NOW.</p>
+                </div>
+                
+                <div class="voice-example">
+                    "Should we tell the customer only on receiving that yes, the part has been received. We will do that, but we have to decide now. I think often, sometimes you see in real life scenarios. So there is no need to tell so many customers every time."
+                </div>
+                
+                <div class="mb-3">
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-envelope me-1"></i>Email Rules:
+                    </h6>
                     <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead class="bg-indigo-600 text-white">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
                                 <tr>
-                                    <th>Level</th>
-                                    <th>What It Means</th>
-                                    <th>When to Fix</th>
+                                    <th>When This Happens...</th>
+                                    <th>Who Gets Email</th>
+                                    <th>Customer Email?</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="priority-p0">
-                                    <td><strong>P0</strong></td>
-                                    <td>System is broken! Can't work without this fix.</td>
-                                    <td>RIGHT NOW!</td>
+                                <tr>
+                                    <td>Task assigned to you</td>
+                                    <td><strong>YOU get email</strong></td>
+                                    <td>No</td>
                                 </tr>
-                                <tr class="priority-p1">
-                                    <td><strong>P1</strong></td>
-                                    <td>Important feature not working properly</td>
-                                    <td>This week</td>
+                                <tr>
+                                    <td>Part you ordered arrives</td>
+                                    <td><strong>Technician gets email</strong></td>
+                                    <td>No</td>
                                 </tr>
-                                <tr class="priority-p2">
-                                    <td><strong>P2</strong></td>
-                                    <td>Would be nice to have, makes things easier</td>
-                                    <td>Next month</td>
+                                <tr>
+                                    <td>Phone fixed and ready</td>
+                                    <td>Manager sees in system</td>
+                                    <td><strong class="text-success">YES - "Come get your phone!"</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Phone can't be fixed</td>
+                                    <td>Manager sees in system</td>
+                                    <td><strong class="text-danger">YES - "Sorry, we can't fix it"</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Just ordering parts</td>
+                                    <td>Store person gets task</td>
+                                    <td><strong class="text-warning">NO - Don't bother customer yet</strong></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 
-                <!-- Visual Guide -->
+                <div class="real-scenario">
+                    <strong>Real Example from Voice:</strong> "Generate notifications on fixed and unfixed. Right. Right? These are the two scenarios on which notifications should be given. Yes. That's right. Whether it is fixed or unfixed, it should be notified whether it is fixed or unfixed."
+                </div>
+                
                 <div>
-                    <h4 class="fw-bold mb-3" style="color: var(--secondary-color);">
-                        <i class="fas fa-eye me-2"></i>How It Should Look
-                    </h4>
-                    <div class="visual-guide">
-                        <h5><i class="fas fa-palette me-2"></i>Color Guide:</h5>
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="me-3" style="width: 20px; height: 20px; background-color: #dc2626; border-radius: 4px;"></div>
-                            <span class="small">Red = Waiting for parts (Important!)</span>
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-clipboard-check me-1"></i>How We Test This:
+                    </h6>
+                    <div class="acceptance-criteria">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Assign task → Person gets "You have new work" email</label>
                         </div>
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="me-3" style="width: 20px; height: 20px; background-color: #10b981; border-radius: 4px;"></div>
-                            <span class="small">Green = Fixed and ready</span>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Part arrives → Technician gets "Your part is here" email</label>
                         </div>
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="me-3" style="width: 20px; height: 20px; background-color: #ea580c; border-radius: 4px;"></div>
-                            <span class="small">Orange = Being worked on</span>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Mark phone fixed → Customer gets "Ready for pickup" email</label>
                         </div>
-                        <div class="d-flex align-items-center">
-                            <div class="me-3" style="width: 20px; height: 20px; background-color: #6366f1; border-radius: 4px;"></div>
-                            <span class="small">Blue = New, not started yet</span>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Order parts → Customer gets NO email (very important!)</label>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Right Column: Detailed Tickets -->
-            <div class="col-lg-8 p-4">
-                <h3 class="fw-bold mb-4" style="color: var(--primary-color); border-bottom: 3px solid var(--primary-color); padding-bottom: 10px;">
-                    <i class="fas fa-ticket-alt me-2"></i>Detailed Ticket Breakdown
-                </h3>
-                
-                <!-- Simple Introduction -->
-                <div class="alert alert-info mb-4">
-                    <h5><i class="fas fa-info-circle me-2"></i>What Are These Tickets?</h5>
-                    <p class="mb-0">Each ticket below is like a "to-do" list item for our programmers. They tell them exactly what to build and how it should work.</p>
-                </div>
-                
-                <!-- Ticket 1 -->
-                <div class="ticket-card p-4 priority-p1">
+            <!-- TICKET 5 -->
+            <div class="ticket-card p-4 priority-p0">
+                <div class="ticket-header">
+                    <div class="ticket-counter">5</div>
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div>
-                            <span class="status-badge bg-warning text-dark">P1 - IMPORTANT</span>
-                            <h4 class="fw-bold mt-2 mb-1">TICKET #1: Keep Repair Board Separate</h4>
-                            <h5 class="text-muted">Technicians should only see what they need to fix</h5>
+                            <span class="status-badge bg-danger text-white">P0 - CRITICAL</span>
+                            <h4 class="fw-bold mt-2 mb-1">Technician Dashboard - See Only Your Work</h4>
+                            <h5 class="text-muted">Technicians should only see their assigned repairs</h5>
                         </div>
                         <div class="text-end">
-                            <span class="badge bg-info text-dark me-1">For Technicians</span>
-                            <span class="badge bg-warning text-dark">No Confusion</span>
-                        </div>
-                    </div>
-                    
-                    <div class="simple-explanation mb-3">
-                        <h6><i class="fas fa-child icon"></i>Simple Explanation:</h6>
-                        <p class="mb-0">Imagine you're a chef in a kitchen. You only need to see the orders for YOUR station, not every single order in the restaurant. That's what we want for technicians!</p>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <h6 class="fw-bold" style="color: var(--primary-color);">
-                            <i class="fas fa-list-check me-1"></i>What Needs to Happen:
-                        </h6>
-                        <div class="step-box">
-                            <div class="step-number">1</div>
-                            <strong>Only technicians</strong> can see the "Repair Jobs" screen
-                        </div>
-                        <div class="step-box">
-                            <div class="step-number">2</div>
-                            <strong>Everyone else</strong> (sales, managers) sees only the general "Task Board"
-                        </div>
-                        <div class="step-box">
-                            <div class="step-number">3</div>
-                            If you're not a technician and try to visit the repair page, you get a "Not Found" message
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h6 class="fw-bold" style="color: var(--primary-color);">
-                            <i class="fas fa-clipboard-check me-1"></i>How We Know It's Working:
-                        </h6>
-                        <div class="acceptance-criteria">
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 1:</strong> Login as technician → See "My Repairs" AND "Task Board"</label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 2:</strong> Login as sales person → See ONLY "Task Board"</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 3:</strong> Sales person tries to visit /repairs → Get error page</label>
-                            </div>
+                            <span class="badge bg-danger text-white me-1">Dashboard</span>
+                            <span class="badge bg-primary text-white">User Experience</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Ticket 2 -->
-                <div class="ticket-card p-4 priority-p0">
+                <div class="simple-explanation">
+                    <h6><i class="fas fa-child icon"></i>What This Means:</h6>
+                    <p class="mb-0">Imagine you're a chef. You only need to see the orders for YOUR station, not every order in the restaurant. Technicians should only see phones THEY need to fix, not everyone's phones.</p>
+                </div>
+                
+                <div class="voice-example">
+                    "For example, there is a senior person in the board or a team lead or an owner himself. After that there are 2-3 technicians and he has given a repair to one of them. So, our concept was that he should just hold the repair and if he has to assign the other one, then he should hold it and put it in his board."
+                </div>
+                
+                <div class="mb-3">
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-list-check me-1"></i>How It Should Work:
+                    </h6>
+                    <div class="step-box">
+                        <div class="step-number">1</div>
+                        When Technician A logs in, they ONLY see repairs assigned to Technician A
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">2</div>
+                        Manager/Owner sees ALL repairs in a simple list (not board view)
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">3</div>
+                        If Manager wants to transfer a repair from Technician A to Technician B, they go to the repair details and change the assigned person
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">4</div>
+                        Repair disappears from Technician A's board, appears on Technician B's board
+                    </div>
+                </div>
+                
+                <div class="real-scenario">
+                    <strong>Real Example from Voice:</strong> "Here, it looks very bad. There are 10 technicians working and 10 technicians' boards are running there. 10 technicians will have 5-5 jobs. How big will that board be? And although he has nothing to do with that board. And he does not have to know the status of the repair he is not working on."
+                </div>
+                
+                <div class="mb-3">
+                    <div class="alert alert-info">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        <strong>Key Insight:</strong> Managers don't need to see everyone's Kanban board. They just need a simple list: "What repairs exist? Who's working on them? What's the status?"
+                    </div>
+                </div>
+                
+                <div>
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-clipboard-check me-1"></i>How We Test This:
+                    </h6>
+                    <div class="acceptance-criteria">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Technician login → Only shows THEIR repairs in Kanban board</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Manager login → "All Repairs" list shows everything</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Manager can change assigned technician from repair details</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Transfer shows in repair history: "Moved from A to B"</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TICKET 6 -->
+            <div class="ticket-card p-4 priority-p2">
+                <div class="ticket-header">
+                    <div class="ticket-counter">6</div>
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div>
-                            <span class="status-badge bg-danger text-white">P0 - SUPER IMPORTANT</span>
-                            <h4 class="fw-bold mt-2 mb-1">TICKET #2: Ordering Parts (Like Sending a Shopping List)</h4>
-                            <h5 class="text-muted">Technician needs a part → Creates shopping list for store person</h5>
+                            <span class="status-badge" style="background-color: #ca8a04; color: white;">P2 - MEDIUM</span>
+                            <h4 class="fw-bold mt-2 mb-1">Color Coding for "Waiting for Parts"</h4>
+                            <h5 class="text-muted">Visual signal when repair is stuck waiting</h5>
                         </div>
                         <div class="text-end">
-                            <span class="badge bg-danger text-white me-1">Critical</span>
-                            <span class="badge bg-primary text-white">Core Feature</span>
+                            <span class="badge bg-info text-dark me-1">UI Design</span>
+                            <span class="badge bg-warning text-dark">Visual</span>
                         </div>
                     </div>
-                    
-                    <div class="simple-explanation mb-3">
-                        <h6><i class="fas fa-child icon"></i>Simple Explanation:</h6>
-                        <p class="mb-0">When fixing a phone, if you need a new screen, you write down "iPhone screen from Amazon.com - $50" and give it to the store guy. He buys it, then tells you when it arrives.</p>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <h6 class="fw-bold" style="color: var(--primary-color);">
-                            <i class="fas fa-list-check me-1"></i>Step-by-Step Process:
-                        </h6>
-                        <div class="step-box">
-                            <div class="step-number">1</div>
-                            Technician clicks "Order Part" button on a repair job
-                        </div>
-                        <div class="step-box">
-                            <div class="step-number">2</div>
-                            A popup appears asking: <strong>Part Link? Price? Who should buy it?</strong>
-                        </div>
-                        <div class="step-box">
-                            <div class="step-number">3</div>
-                            System creates a "shopping task" for the store person
-                        </div>
-                        <div class="step-box">
-                            <div class="step-number">4</div>
-                            Repair job turns yellow/orange to show "waiting for parts"
-                        </div>
-                        <div class="step-box">
-                            <div class="step-number">5</div>
-                            Store person buys part, marks task done → Technician gets notified
-                        </div>
-                    </div>
-                    
-                    <div class="visual-guide mb-3">
-                        <h5><i class="fas fa-mobile-alt me-2"></i>Example:</h5>
-                        <p class="mb-0"><strong>Task Created:</strong> "Buy screen for John's iPhone 12 - Amazon link - $49.99 - Assign to Store Bob"</p>
-                    </div>
-                    
-                    <div>
-                        <h6 class="fw-bold" style="color: var(--primary-color);">
-                            <i class="fas fa-clipboard-check me-1"></i>How We Know It's Working:
-                        </h6>
-                        <div class="acceptance-criteria">
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 1:</strong> Click "Order Part" → Popup appears with all required fields</label>
+                </div>
+                
+                <div class="simple-explanation">
+                    <h6><i class="fas fa-child icon"></i>What This Means:</h6>
+                    <p class="mb-0">When a repair is waiting for parts, it should look different so everyone can see at a glance: "This one is stuck, waiting for parts to arrive."</p>
+                </div>
+                
+                <div class="voice-example">
+                    "I want to ask what is the validity of those who have ordered parts. The parts order is free, it will remain in progress. It will remain in progress and its status will be coming on it. I am doing this. Badge will be coming. I am thinking that the parts order one. Yes. Free it. Bring it back to the unassigned list."
+                </div>
+                
+                <div class="mb-3">
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-palette me-1"></i>Color System:
+                    </h6>
+                    <div class="row text-center">
+                        <div class="col-md-3 mb-3">
+                            <div class="p-3 rounded-3" style="background-color: #dc2626; color: white;">
+                                <strong>Red/Orange</strong>
+                                <p class="mb-0 small">Waiting for Parts</p>
                             </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 2:</strong> After submitting, store person gets email with shopping details</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="p-3 rounded-3" style="background-color: #10b981; color: white;">
+                                <strong>Green</strong>
+                                <p class="mb-0 small">Fixed - Ready</p>
                             </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 3:</strong> Repair job changes color to show "waiting for parts"</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="p-3 rounded-3" style="background-color: #ea580c; color: white;">
+                                <strong>Orange</strong>
+                                <p class="mb-0 small">In Progress</p>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 4:</strong> Store person marks task done → Technician gets "part arrived" email</label>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="p-3 rounded-3" style="background-color: #6366f1; color: white;">
+                                <strong>Blue</strong>
+                                <p class="mb-0 small">New - Not Started</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Ticket 3 -->
-                <div class="ticket-card p-4 priority-p1">
+                <div class="real-scenario">
+                    <strong>Real Example from Voice:</strong> "The color from which it is identified, people will understand it themselves. That this colored, its parts order is pending because of this. There is no progress on this. And those who are completely unstarted, their color is added. Unstarted ones will be showing in their own tile anyway."
+                </div>
+                
+                <div>
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-clipboard-check me-1"></i>How We Test This:
+                    </h6>
+                    <div class="acceptance-criteria">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Order parts → Repair card turns red/orange automatically</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Parts arrive → Repair card goes back to normal color</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Different statuses have different colors (visual guide)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TICKET 7 -->
+            <div class="ticket-card p-4 priority-p1">
+                <div class="ticket-header">
+                    <div class="ticket-counter">7</div>
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div>
-                            <span class="status-badge bg-warning text-dark">P1 - IMPORTANT</span>
-                            <h4 class="fw-bold mt-2 mb-1">TICKET #3: Task Board Rules (Like Classroom Rules)</h4>
-                            <h5 class="text-muted">Who can do what with tasks - Clear rules needed</h5>
+                            <span class="status-badge bg-warning text-dark">P1 - HIGH PRIORITY</span>
+                            <h4 class="fw-bold mt-2 mb-1">Attach Part vs Order Part Buttons</h4>
+                            <h5 class="text-muted">Clear buttons for each action on repair jobs</h5>
                         </div>
                         <div class="text-end">
-                            <span class="badge bg-secondary text-white me-1">Rules</span>
-                            <span class="badge bg-dark text-white">Permissions</span>
+                            <span class="badge bg-info text-dark me-1">UI Design</span>
+                            <span class="badge bg-primary text-white">Buttons</span>
                         </div>
                     </div>
-                    
-                    <div class="simple-explanation mb-3">
-                        <h6><i class="fas fa-child icon"></i>Simple Explanation:</h6>
-                        <p class="mb-0">Think of tasks like sticky notes on a board. You can put a sticky note on someone else's desk (assign a task), but you can't move THEIR sticky notes around. Only they can move their own notes.</p>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <h6 class="fw-bold" style="color: var(--primary-color);">
-                            <i class="fas fa-gavel me-1"></i>The Rules:
-                        </h6>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card border-success h-100">
-                                    <div class="card-header bg-success text-white">
-                                        <i class="fas fa-check-circle me-2"></i>CAN DO
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="mb-0">
-                                            <li>Create tasks for anyone</li>
-                                            <li>Delete tasks you created</li>
-                                            <li>Take someone else's task if they're away</li>
-                                            <li>See who did what and when</li>
-                                        </ul>
-                                    </div>
+                </div>
+                
+                <div class="simple-explanation">
+                    <h6><i class="fas fa-child icon"></i>What This Means:</h6>
+                    <p class="mb-0">On each repair job, we need two clear buttons: one for "I have the part right here" and one for "I need to order this part."</p>
+                </div>
+                
+                <div class="voice-example">
+                    "A small thing came to my mind. When we will put the task repair in progress from unstarted, then we will show the jobs there, 1,2,3 whatever jobs. There we are pressing the button to attach the part. We are making there we should not make the order part button in relation to that. There is a small tile below that we make two buttons in equal width. Either attach the part or order."
+                </div>
+                
+                <div class="mb-3">
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-mobile-alt me-1"></i>Button Design:
+                    </h6>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100 border-success">
+                                <div class="card-body text-center">
+                                    <div class="display-4 mb-3">🔧</div>
+                                    <h5>ATTACH PART</h5>
+                                    <p class="small mb-0"><strong>When:</strong> You have the part in your hand</p>
+                                    <p class="small mb-0"><strong>Action:</strong> Scan or select from inventory</p>
+                                    <button class="btn btn-success mt-2">Attach Part</button>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card border-danger h-100">
-                                    <div class="card-header bg-danger text-white">
-                                        <i class="fas fa-times-circle me-2"></i>CAN'T DO
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="mb-0">
-                                            <li>Move other people's tasks</li>
-                                            <li>Delete tasks you didn't create</li>
-                                            <li>Hide who created a task</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                    
-                    <div>
-                        <h6 class="fw-bold" style="color: var(--primary-color);">
-                            <i class="fas fa-clipboard-check me-1"></i>How We Know It's Working:
-                        </h6>
-                        <div class="acceptance-criteria">
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 1:</strong> Alice creates task for Bob → Bob can move it, Alice can't</label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 2:</strong> Alice deletes her task → Bob gets "task deleted" email</label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 3:</strong> "Assign to Myself" button works for anyone</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 4:</strong> Task history shows "Alice created, Bob assigned, Charlie took over"</label>
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body text-center">
+                                    <div class="display-4 mb-3">🛒</div>
+                                    <h5>ORDER PART</h5>
+                                    <p class="small mb-0"><strong>When:</strong> Need to buy the part</p>
+                                    <p class="small mb-0"><strong>Action:</strong> Create task for store person</p>
+                                    <button class="btn btn-primary mt-2">Order Part</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Ticket 4 -->
-                <div class="ticket-card p-4 priority-p1">
+                <div class="real-scenario">
+                    <strong>Real Example from Voice:</strong> "If he orders then we make a popup window for him. We select the person and assign the task. And there it will be shown that his part has been ordered. The same should be done for the other job that his part has been ordered."
+                </div>
+                
+                <div>
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-clipboard-check me-1"></i>How We Test This:
+                    </h6>
+                    <div class="acceptance-criteria">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Each job shows two equal-width buttons side by side</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">"Attach Part" opens inventory/scanning screen</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">"Order Part" opens the part ordering popup</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TICKET 8 -->
+            <div class="ticket-card p-4 priority-p2">
+                <div class="ticket-header">
+                    <div class="ticket-counter">8</div>
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div>
-                            <span class="status-badge bg-warning text-dark">P1 - IMPORTANT</span>
-                            <h4 class="fw-bold mt-2 mb-1">TICKET #4: Smart Notifications (Only Important Emails)</h4>
-                            <h5 class="text-muted">Send emails for important stuff, not everything</h5>
+                            <span class="status-badge" style="background-color: #ca8a04; color: white;">P2 - MEDIUM</span>
+                            <h4 class="fw-bold mt-2 mb-1">Task Deletion Notifications</h4>
+                            <h5 class="text-muted">Tell people when tasks created for them are deleted</h5>
                         </div>
                         <div class="text-end">
-                            <span class="badge bg-success text-white me-1">Emails</span>
-                            <span class="badge bg-info text-dark">Notifications</span>
+                            <span class="badge bg-success text-white me-1">Notifications</span>
+                            <span class="badge bg-secondary text-white">Transparency</span>
                         </div>
                     </div>
-                    
-                    <div class="simple-explanation mb-3">
-                        <h6><i class="fas fa-child icon"></i>Simple Explanation:</h6>
-                        <p class="mb-0">You don't want email for every little thing (that's spam!). You only want email when:
-                        <br>1. Someone gives you work to do
-                        <br>2. Your ordered part arrives
-                        <br>3. A customer's phone is ready
-                        </p>
+                </div>
+                
+                <div class="simple-explanation">
+                    <h6><i class="fas fa-child icon"></i>What This Means:</h6>
+                    <p class="mb-0">If someone gives you homework and then takes it away, they should tell you "never mind, you don't have to do it anymore." Same with tasks in our system.</p>
+                </div>
+                
+                <div class="voice-example">
+                    "Even if he will delete it, I will get a notification that he has deleted the task. He can also delete the task that he has generated."
+                </div>
+                
+                <div class="mb-3">
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-trash-alt me-1"></i>Deletion Rules:
+                    </h6>
+                    <div class="step-box">
+                        <div class="step-number">1</div>
+                        Only the person who CREATED a task can delete it
                     </div>
-                    
-                    <div class="mb-3">
-                        <h6 class="fw-bold" style="color: var(--primary-color);">
-                            <i class="fas fa-envelope me-1"></i>Who Gets What Emails:
-                        </h6>
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>When This Happens...</th>
-                                        <th>Who Gets Email</th>
-                                        <th>Customer Email?</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Task assigned to you</td>
-                                        <td>YOU get email</td>
-                                        <td>No</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Part you ordered arrives</td>
-                                        <td>Technician gets email</td>
-                                        <td>No</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Phone fixed and ready</td>
-                                        <td>Manager knows</td>
-                                        <td><strong>YES - "Come get your phone!"</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Phone can't be fixed</td>
-                                        <td>Manager knows</td>
-                                        <td><strong>YES - "Sorry, we can't fix it"</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Just ordering parts</td>
-                                        <td>Store person gets task</td>
-                                        <td><strong>NO - Don't bother customer yet</strong></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <div class="step-box">
+                        <div class="step-number">2</div>
+                        When a task is deleted, the person it was assigned to gets an email: "Your task '[Task Name]' was deleted by [Creator Name]"
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">3</div>
+                        Deleted tasks are removed from the board but kept in history (for records)
+                    </div>
+                </div>
+                
+                <div class="real-scenario">
+                    <strong>Real Example from Voice:</strong> This came from the concern that if someone creates a task for you and then deletes it without telling you, you might keep looking for it or think you still need to do it.
+                </div>
+                
+                <div>
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-clipboard-check me-1"></i>How We Test This:
+                    </h6>
+                    <div class="acceptance-criteria">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Alice creates task for Bob → Only Alice sees delete button</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Alice deletes task → Bob gets "task deleted" email</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Bob cannot delete Alice's task (no delete button shown)</label>
                         </div>
                     </div>
-                    
+                </div>
+            </div>
+            
+            <!-- TICKET 9 -->
+            <div class="ticket-card p-4 priority-p1">
+                <div class="ticket-header">
+                    <div class="ticket-counter">9</div>
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <span class="status-badge bg-warning text-dark">P1 - HIGH PRIORITY</span>
+                            <h4 class="fw-bold mt-2 mb-1">Repair Progress Steps (Like Game Levels)</h4>
+                            <h5 class="text-muted">Clear stages for each repair with appropriate actions</h5>
+                        </div>
+                        <div class="text-end">
+                            <span class="badge bg-info text-dark me-1">Workflow</span>
+                            <span class="badge bg-primary text-white">User Experience</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="simple-explanation">
+                    <h6><i class="fas fa-child icon"></i>What This Means:</h6>
+                    <p class="mb-0">Think of repairing a phone like playing a video game with levels. Each level has different things you can do. Level 1: Start repair. Level 2: Attach parts. Level 3: Mark as fixed.</p>
+                </div>
+                
+                <div class="voice-example">
+                    "The in-process is done. Now when he has transferred it from there in the in-process, now he will have the option to add the parts. Now he has attached the parts. After doing that, he will after it is done, he will add it. In this way, we can play very well with the UI."
+                </div>
+                
+                <div class="mb-3">
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-gamepad me-1"></i>Repair "Game Levels":
+                    </h6>
+                    <div class="row text-center">
+                        <div class="col-md-3 mb-3">
+                            <div class="card h-100 border-secondary">
+                                <div class="card-body">
+                                    <div class="display-4 mb-2">🆕</div>
+                                    <h6>LEVEL 1<br>Not Started</h6>
+                                    <p class="small mb-0"><strong>Action:</strong> Start Repair</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card h-100 border-warning">
+                                <div class="card-body">
+                                    <div class="display-4 mb-2">🔧</div>
+                                    <h6>LEVEL 2<br>In Progress</h6>
+                                    <p class="small mb-0"><strong>Actions:</strong> Attach Parts, Order Parts</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card h-100 border-danger">
+                                <div class="card-body">
+                                    <div class="display-4 mb-2">⏳</div>
+                                    <h6>LEVEL 2.5<br>Waiting Parts</h6>
+                                    <p class="small mb-0"><strong>Status:</strong> Stuck, parts coming</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <div class="display-4 mb-2">✅</div>
+                                    <h6>LEVEL 3<br>Fixed</h6>
+                                    <p class="small mb-0"><strong>Next:</strong> Ready for customer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="real-scenario">
+                    <strong>Real Example from Voice:</strong> "I mean, for every stage, the stage is coming to us, right? Let's make a separate activity for it. I mean, if it is in-progress, then its logic is made that he should attach the parts, someone else should work on it, order the parts."
+                </div>
+                
+                <div>
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-clipboard-check me-1"></i>How We Test This:
+                    </h6>
+                    <div class="acceptance-criteria">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Each stage shows only relevant buttons/actions</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">"In Progress" stage shows part buttons</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">"Fixed" stage doesn't show repair actions anymore</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TICKET 10 -->
+            <div class="ticket-card p-4 priority-p2">
+                <div class="ticket-header">
+                    <div class="ticket-counter">10</div>
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <span class="status-badge" style="background-color: #ca8a04; color: white;">P2 - MEDIUM</span>
+                            <h4 class="fw-bold mt-2 mb-1">Delivery Status via Invoice System</h4>
+                            <h5 class="text-muted">Mark repairs as delivered from invoice, not repair board</h5>
+                        </div>
+                        <div class="text-end">
+                            <span class="badge bg-info text-dark me-1">Integration</span>
+                            <span class="badge bg-secondary text-white">Billing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="simple-explanation">
+                    <h6><i class="fas fa-child icon"></i>What This Means:</h6>
+                    <p class="mb-0">When a phone is fixed and ready, the "delivered" status should be handled when the customer pays and collects it (invoice system), not from the repair dashboard.</p>
+                </div>
+                
+                <div class="voice-example">
+                    "The status of the delivery will be generated from the invoice. And what you have to do for that, you don't have to do for that. The invoice page. Whatever status is running there."
+                </div>
+                
+                <div class="mb-3">
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-receipt me-1"></i>Delivery Process:
+                    </h6>
+                    <div class="step-box">
+                        <div class="step-number">1</div>
+                        Phone fixed → Shows in "Fixed" section on repair board
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">2</div>
+                        Customer comes to collect → Sales person creates invoice
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">3</div>
+                        On invoice page, button "Mark as Delivered & Notify Customer"
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">4</div>
+                        Customer gets "Thanks for coming" email, repair moves to archive
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">5</div>
+                        Fixed repairs automatically removed from board after 1 day (cleanup)
+                    </div>
+                </div>
+                
+                <div class="real-scenario">
+                    <strong>Real Example from Voice:</strong> "The unprocessed repairs will be in the dashboard, no matter what the date is. The parts will be in the dashboard, no matter what the date is. The parts that have been fixed will be shown only according to the deal. The parts that have been fixed today will not be shown in the next day."
+                </div>
+                
+                <div class="mb-3">
                     <div class="alert alert-warning">
-                        <i class="fas fa-exclamation-triangle me-2"></i>
-                        <strong>Important:</strong> Customers should NOT get emails every time we order parts. Only when their phone is actually ready or can't be fixed.
-                    </div>
-                    
-                    <div>
-                        <h6 class="fw-bold" style="color: var(--primary-color);">
-                            <i class="fas fa-clipboard-check me-1"></i>How We Know It's Working:
-                        </h6>
-                        <div class="acceptance-criteria">
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 1:</strong> Assign task → Person gets "You have new work" email</label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 2:</strong> Part arrives → Technician gets "Your part is here" email</label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 3:</strong> Mark phone fixed → Customer gets "Ready for pickup" email</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label"><strong>Test 4:</strong> Order parts → Customer gets NO email (very important!)</label>
-                            </div>
-                        </div>
+                        <i class="fas fa-clock me-2"></i>
+                        <strong>Auto-Cleanup:</strong> Fixed repairs should automatically disappear from the technician's dashboard after 1 day (or at night) to keep it clean.
                     </div>
                 </div>
                 
-                <!-- Show More Button -->
-                <div class="text-center mt-4">
-                    <button class="btn btn-lg" id="showMoreTickets" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white;">
-                        <i class="fas fa-arrow-down me-2"></i>Show 6 More Tickets (Total 10)
-                    </button>
-                </div>
-                
-                <!-- Hidden Tickets -->
-                <div id="moreTickets" class="d-none">
-                    <!-- Tickets 5-10 -->
-                    <div class="alert alert-success mt-4">
-                        <h5><i class="fas fa-check-circle me-2"></i>More Tickets Available!</h5>
-                        <p class="mb-0">The complete document includes 10 total tickets covering:
-                        <br>- Manager views (see everything without confusion)
-                        <br>- Color coding for "waiting for parts"
-                        <br>- Technician dashboards (only see your work)
-                        <br>- Repair progress steps (like a game level)
-                        <br>- Invoice and delivery system
-                        </p>
-                    </div>
-                    
-                    <div class="ticket-card p-4 priority-p0">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div>
-                                <span class="status-badge bg-danger text-white">P0 - SUPER IMPORTANT</span>
-                                <h4 class="fw-bold mt-2 mb-1">TICKET #5: Manager's View (Like School Principal)</h4>
-                                <h5 class="text-muted">Managers see everything but in a simple list</h5>
-                            </div>
+                <div>
+                    <h6 class="fw-bold" style="color: var(--primary-color);">
+                        <i class="fas fa-clipboard-check me-1"></i>How We Test This:
+                    </h6>
+                    <div class="acceptance-criteria">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Invoice page has "Mark Delivered" button</label>
                         </div>
-                        <p class="mb-0">Managers don't need to see each technician's board (too confusing!). They just need a simple list: "What repairs exist? Who's working on them? What's the status?"</p>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Clicking button sends "thanks for coming" email to customer</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label">Fixed repairs auto-remove from board after 24 hours</label>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Visual Workflow Section -->
+        <!-- Summary Section -->
         <div class="p-5 bg-light border-top">
             <h3 class="fw-bold mb-4 text-center" style="color: var(--primary-color);">
-                <i class="fas fa-project-diagram me-2"></i>How Everything Fits Together
+                <i class="fas fa-check-circle me-2"></i>Complete Ticket Summary
             </h3>
             
-            <div class="row text-center">
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 border-primary">
-                        <div class="card-body">
-                            <div class="display-1 mb-3">📱</div>
-                            <h5>Customer Brings Phone</h5>
-                            <p class="small">Phone needs fixing. Sales person creates repair ticket.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 border-warning">
-                        <div class="card-body">
-                            <div class="display-1 mb-3">👨‍🔧</div>
-                            <h5>Technician Works</h5>
-                            <p class="small">Technician gets phone, starts fixing. Needs part? Orders it.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 border-info">
-                        <div class="card-body">
-                            <div class="display-1 mb-3">🛒</div>
-                            <h5>Store Buys Part</h5>
-                            <p class="small">Store person gets "buy this part" task. Buys it, marks done.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 border-success">
-                        <div class="card-body">
-                            <div class="display-1 mb-3">✅</div>
-                            <h5>Phone Fixed!</h5>
-                            <p class="small">Technician fixes phone. Customer gets "ready for pickup" email.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Ticket #</th>
+                            <th>Priority</th>
+                            <th>Name</th>
+                            <th>Simple Description</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="priority-p0">
+                            <td><strong>2</strong></td>
+                            <td><span class="badge bg-danger">P0 - Critical</span></td>
+                            <td>Part Ordering System</td>
+                            <td>Create shopping tasks for store person</td>
+                            <td>Not Started</td>
+                        </tr>
+                        <tr class="priority-p0">
+                            <td><strong>5</strong></td>
+                            <td><span class="badge bg-danger">P0 - Critical</span></td>
+                            <td>Technician Dashboard</td>
+                            <td>Technicians only see their own work</td>
+                            <td>Not Started</td>
+                        </tr>
+                        <tr class="priority-p1">
+                            <td><strong>1</strong></td>
+                            <td><span class="badge bg-warning">P1 - High</span></td>
+                            <td>Separate Boards</td>
+                            <td>Repair board and task board separate</td>
+                            <td>Not Started</td>
+                        </tr>
+                        <tr class="priority-p1">
+                            <td><strong>3</strong></td>
+                            <td><span class="badge bg-warning">P1 - High</span></td>
+                            <td>Task Board Rules</td>
+                            <td>Clear permissions for tasks</td>
+                            <td>Not Started</td>
+                        </tr>
+                        <tr class="priority-p1">
+                            <td><strong>4</strong></td>
+                            <td><span class="badge bg-warning">P1 - High</span></td>
+                            <td>Smart Notifications</td>
+                            <td>Only important emails, no spam</td>
+                            <td>Not Started</td>
+                        </tr>
+                        <tr class="priority-p1">
+                            <td><strong>7</strong></td>
+                            <td><span class="badge bg-warning">P1 - High</span></td>
+                            <td>Attach/Order Buttons</td>
+                            <td>Clear buttons for each action</td>
+                            <td>Not Started</td>
+                        </tr>
+                        <tr class="priority-p1">
+                            <td><strong>9</strong></td>
+                            <td><span class="badge bg-warning">P1 - High</span></td>
+                            <td>Repair Progress Steps</td>
+                            <td>Game-like levels for repairs</td>
+                            <td>Not Started</td>
+                        </tr>
+                        <tr class="priority-p2">
+                            <td><strong>6</strong></td>
+                            <td><span class="badge" style="background-color: #ca8a04;">P2 - Medium</span></td>
+                            <td>Color Coding</td>
+                            <td>Visual signals for repair status</td>
+                            <td>Not Started</td>
+                        </tr>
+                        <tr class="priority-p2">
+                            <td><strong>8</strong></td>
+                            <td><span class="badge" style="background-color: #ca8a04;">P2 - Medium</span></td>
+                            <td>Task Deletion Notifications</td>
+                            <td>Tell people when tasks are deleted</td>
+                            <td>Not Started</td>
+                        </tr>
+                        <tr class="priority-p2">
+                            <td><strong>10</strong></td>
+                            <td><span class="badge" style="background-color: #ca8a04;">P2 - Medium</span></td>
+                            <td>Delivery via Invoice</td>
+                            <td>Mark delivered from invoice system</td>
+                            <td>Not Started</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         
         <!-- Footer -->
         <div class="bg-dark text-white p-4">
             <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">
-                        <strong>Document Created by:</strong> Reyans Shoaib<br>
-                        <strong>Role:</strong> Product Analyst & System Designer<br>
-                        <strong>Goal:</strong> Make complex systems simple for everyone
+                <div class="col-md-8">
+                    <h5 class="fw-bold mb-2">Document Created By:</h5>
+                    <div class="signature" style="font-size: 2rem; color: white;">Reyans Shoaib</div>
+                    <p class="mb-0 mt-2">
+                        <i class="fas fa-envelope me-2"></i>Product Analyst & System Designer<br>
+                        <i class="fas fa-calendar me-2"></i>October 26, 2023<br>
+                        <i class="fas fa-file-alt me-2"></i>Complete Specification Document - All 10 Tickets
                     </p>
                 </div>
-                <div class="col-md-6 text-end">
-                    <div class="created-by">
-                        <p class="mb-1">
-                            <i class="fas fa-heart text-danger me-1"></i>
-                            <strong>Made with care for our development team</strong>
-                        </p>
-                        <div class="signature">Reyans Shoaib</div>
+                <div class="col-md-4 text-end">
+                    <div class="bg-white text-dark p-3 rounded-3">
+                        <h6 class="fw-bold mb-2">Total Tickets: 10</h6>
+                        <div class="small">
+                            <div>P0 Critical: <strong>2</strong></div>
+                            <div>P1 High: <strong>5</strong></div>
+                            <div>P2 Medium: <strong>3</strong></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -789,39 +1248,33 @@
     
     <!-- Custom JavaScript -->
     <script>
-        // Show more tickets functionality
-        document.getElementById('showMoreTickets').addEventListener('click', function() {
-            const moreTickets = document.getElementById('moreTickets');
-            const button = this;
-            
-            if (moreTickets.classList.contains('d-none')) {
-                moreTickets.classList.remove('d-none');
-                button.innerHTML = '<i class="fas fa-arrow-up me-2"></i>Show Less Tickets';
-                button.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-                moreTickets.classList.add('d-none');
-                button.innerHTML = '<i class="fas fa-arrow-down me-2"></i>Show 6 More Tickets (Total 10)';
-            }
+        // Add click animation to tickets
+        document.querySelectorAll('.ticket-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
         });
         
         // Print functionality
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.key === 'p') {
                 e.preventDefault();
-                alert('To save as PDF: 1. Press Ctrl+P 2. Choose "Save as PDF" 3. Click Save');
                 window.print();
             }
         });
         
-        // Add animation to tickets
+        // Animate ticket appearance
         document.addEventListener('DOMContentLoaded', function() {
             const tickets = document.querySelectorAll('.ticket-card');
             tickets.forEach((ticket, index) => {
                 ticket.style.opacity = '0';
-                ticket.style.transform = 'translateY(20px)';
+                ticket.style.transform = 'translateY(30px)';
                 
                 setTimeout(() => {
-                    ticket.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    ticket.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                     ticket.style.opacity = '1';
                     ticket.style.transform = 'translateY(0)';
                 }, index * 100);
